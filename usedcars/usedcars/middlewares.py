@@ -101,3 +101,9 @@ class UsedcarsDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+class CustomProxyMiddleware(object):
+    def process_request(self, request, spider):
+        request.meta['proxy'] = "https://185.240.94.175:8000"
+        # request.headers['Proxy-Authorization'] = basic_auth_header('<PROXY_USERNAME>', '<PROXY_PASSWORD>')
